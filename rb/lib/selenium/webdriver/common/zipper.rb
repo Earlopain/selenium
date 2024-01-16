@@ -20,7 +20,6 @@
 require 'zip'
 require 'tempfile'
 require 'find'
-require 'base64'
 
 module Selenium
   module WebDriver
@@ -56,7 +55,7 @@ module Selenium
             end
 
             zip.commit
-            File.open(zip.name, 'rb') { |io| Base64.strict_encode64 io.read }
+            File.open(zip.name, 'rb') { |io| Support::Base64.strict_encode64 io.read }
           end
         end
 
@@ -65,7 +64,7 @@ module Selenium
             add_zip_entry zip, path, File.basename(path)
 
             zip.commit
-            File.open(zip.name, 'rb') { |io| Base64.strict_encode64 io.read }
+            File.open(zip.name, 'rb') { |io| Support::Base64.strict_encode64 io.read }
           end
         end
 

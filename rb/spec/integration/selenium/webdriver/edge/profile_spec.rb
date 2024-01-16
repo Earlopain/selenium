@@ -45,7 +45,7 @@ module Selenium
           allow(profile).to receive(:layout_on_disk).and_return 'ignored'
 
           expect(profile.as_json).to eq('directory' => 'ignored',
-                                        'extensions' => [Base64.strict_encode64('test')])
+                                        'extensions' => [Support::Base64.strict_encode64('test')])
           expect(ext_file).to have_received(:read)
         end
 

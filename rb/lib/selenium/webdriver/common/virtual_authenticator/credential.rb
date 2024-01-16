@@ -35,11 +35,11 @@ module Selenium
         end
 
         def encode(byte_array)
-          Base64.urlsafe_encode64(byte_array&.pack('C*'))
+          Support::Base64.urlsafe_encode64(byte_array&.pack('C*'))
         end
 
         def decode(base64)
-          Base64.urlsafe_decode64(base64).unpack('C*')
+          Support::Base64.urlsafe_decode64(base64).unpack('C*')
         end
 
         def from_json(opts)

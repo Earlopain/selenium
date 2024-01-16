@@ -224,7 +224,7 @@ module Selenium
         end
 
         def encode_extension(path)
-          File.open(path, 'rb') { |crx_file| Base64.strict_encode64 crx_file.read }
+          File.open(path, 'rb') { |crx_file| Support::Base64.strict_encode64 crx_file.read }
         end
 
         def validate_extension(path)

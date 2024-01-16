@@ -75,7 +75,7 @@ module Selenium
 
         def as_json(*)
           extensions = @extensions.map do |crx_path|
-            File.open(crx_path, 'rb') { |crx_file| Base64.strict_encode64 crx_file.read }
+            File.open(crx_path, 'rb') { |crx_file| Support::Base64.strict_encode64 crx_file.read }
           end
 
           extensions.concat(@encoded_extensions)

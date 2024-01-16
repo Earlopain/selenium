@@ -33,7 +33,7 @@ module Selenium
           response = @bridge.download_file(file_name)
           contents = response['contents']
 
-          File.open("#{file_name}.zip", 'wb') { |f| f << Base64.decode64(contents) }
+          File.open("#{file_name}.zip", 'wb') { |f| f << Support::Base64.decode64(contents) }
           target_directory += '/' unless target_directory.end_with?('/')
           FileUtils.mkdir_p(target_directory)
 

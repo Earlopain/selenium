@@ -41,7 +41,7 @@ module Selenium
       describe '#zip' do
         it 'a file' do
           File.open(zip_file, 'wb') do |io|
-            io << Base64.decode64(described_class.zip_file(create_file))
+            io << Support::Base64.decode64(described_class.zip_file(create_file))
           end
 
           expect(File).to exist(zip_file)
@@ -51,7 +51,7 @@ module Selenium
           create_file
 
           File.open(zip_file, 'wb') do |io|
-            io << Base64.decode64(described_class.zip(dir_to_zip))
+            io << Support::Base64.decode64(described_class.zip(dir_to_zip))
           end
 
           expect(File).to exist(zip_file)
@@ -63,7 +63,7 @@ module Selenium
 
           zip_file = File.join(Dir.tmpdir, 'test.zip')
           File.open(zip_file, 'wb') do |io|
-            io << Base64.decode64(described_class.zip(dir_to_zip))
+            io << Support::Base64.decode64(described_class.zip(dir_to_zip))
           end
 
           unzipped = described_class.unzip(zip_file)
@@ -74,7 +74,7 @@ module Selenium
       describe '#unzip' do
         it 'a file' do
           File.open(zip_file, 'wb') do |io|
-            io << Base64.decode64(described_class.zip_file(create_file))
+            io << Support::Base64.decode64(described_class.zip_file(create_file))
           end
 
           unzipped = described_class.unzip(zip_file)
@@ -85,7 +85,7 @@ module Selenium
           create_file
 
           File.open(zip_file, 'wb') do |io|
-            io << Base64.decode64(described_class.zip(dir_to_zip))
+            io << Support::Base64.decode64(described_class.zip(dir_to_zip))
           end
 
           unzipped = described_class.unzip(zip_file)

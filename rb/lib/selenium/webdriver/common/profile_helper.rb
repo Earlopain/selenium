@@ -74,7 +74,7 @@ module Selenium
           data = decoded(json)
 
           Tempfile.create do |zip_path|
-            File.open(zip_path, 'wb') { |zip_file| zip_file << Base64.decode64(data) }
+            File.open(zip_path, 'wb') { |zip_file| zip_file << Support::Base64.decode64(data) }
 
             new Zipper.unzip(zip_path)
           end
